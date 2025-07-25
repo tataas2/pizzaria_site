@@ -2,6 +2,8 @@
 
 Bem-vindo(a) ao projeto **Stan Lee Pizzaria**, uma pizzaria fictícia totalmente inspirada no universo Marvel! 
 Criado com tecnologias web modernas, esse site traz uma experiência divertida e temática para quem ama pizza e super-heróis.
+Eu sou a desenvolvedora, e minha amiga Sabrina Casero é a idealizadora do projeto de design.
+
 
 ## 🦸‍♂️ Sobre o Projeto
 
