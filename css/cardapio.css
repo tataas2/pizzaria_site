@@ -1,0 +1,159 @@
+main.containerM {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin-left:5% ;
+  margin-right: 5%;
+  min-height: 100vh;
+  backdrop-filter: blur(1px);
+
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; 
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.tab-btn {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  border: 2px solid #000;
+  background: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.tab-btn.active {
+  background: 
+  radial-gradient(circle, #ED1D24 30%, #c2161e 60%, #3d3636 100%);
+
+  color: #fff;
+}
+
+/* Conteúdo das abas */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.cardapio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 5%;}
+
+.item-cardapio {
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 10px;
+  width: 150px;
+  height: 200px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.item-cardapio img {
+  width: 100%;
+  height: 50%;
+  border-radius: 5px;
+}
+
+.item-cardapio span {
+  font-weight: bold;
+  color: #ED1D24;
+  display: block;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+.item-cardapio p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp:4;   /* número de linhas antes de cortar */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  font-family: sans-serif;
+  color: #535353;
+}
+
+.item-cardapio h3 {
+  font-size: 0.9rem;
+  font-weight: 500px;
+  color: #000;
+}
+.item-cardapio.template {
+  display: none;
+}
+
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.103);
+  display: none; /* escondido por padrão */
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.modal {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  max-width: 90%;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.modal img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.modal-description {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.modal-price {
+  font-weight: bold;
+  color: #ED1D24;
+  font-size: 1.2rem;
+}

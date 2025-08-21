@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cardapio.css">
+
+
+    <link rel="icon" href="images/favicon.png">
+    <script src="https://kit.fontawesome.com/3df637a2f2.js" crossorigin="anonymous"></script>
+
+
+    <link rel="icon" href="img/logo-pizza-da-nonna.png">
+    <title>Pizzaria</title>
+</head>
+
+<body>
+    <header>
+        <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+            <span></span> <!-- 1º traço -->
+            <span></span> <!-- 2º traço -->
+            <span></span> <!-- 3º traço -->
+        </button>
+        <nav class="nav-principal">
+            <div class="logo">
+                <img src="img/logoPizza.png" alt="logo da pizzaria" />
+                <h3>Stan Lee Pizza's</h3>
+            </div>
+            <div class="list-menu">
+                <ul>
+                    <li><a id="linkHome" href="index.html">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+     
+<!-- Tabs -->
+  <main class="containerM">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="pizzas">🍕 Pizzas </button>
+      <button class="tab-btn" data-tab="pizzas-doces">🍰 Pizzas Doces</button>
+      <button class="tab-btn" data-tab="bebidas">🥤 Bebidas</button>
+    </div>
+
+   <!-- Container de cards -->
+  <div class="cardapio-grid">
+    <div class="item-cardapio template">
+      <img src="" alt="">
+      <h3></h3>
+      <p></p>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Modal -->
+<div class="modal-overlay">
+  <div class="modal">
+    <button class="modal-close">&times;</button>
+    <img src="" alt="Pizza" class="modal-img">
+    <h3 class="modal-title"></h3>
+    <p class="modal-description"></p>
+    <span class="modal-price"></span>
+  </div>
+</div>
+
+  </main>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!---
+        <footer>
+            <p>© 2025 Tainá Souza. Todos os direitos reservados.</p>
+        </footer> -->
+
+        <script src="js/menuHome.js"></script>
+        <script src="js/cardapio.js"></script>
+        <script src="js/abas.js"></script>
+</body>
+
+</html>
