@@ -356,12 +356,17 @@ footer p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
+    margin-bottom: 10%;
+
+
 }
 
 .carousel {
     position: relative;
     width: 90%;
     max-width: 700px;
+
     margin: 50px auto;
     overflow: hidden;
     border-radius: 22px;
@@ -381,6 +386,7 @@ footer p {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.123) 20%, rgba(255, 255, 255, 0) 0%);
     backdrop-filter: blur(1.3px);
     padding: 15px;
+    margin-bottom: 0p
 }
 
 .carousel-item img {
@@ -441,6 +447,8 @@ footer p {
     margin-left: 40%;
     margin-right: 40%;
     width: 20%;
+    margin-top: -6%;
+    margin-bottom: 15px;
     background: #ED1D24;
     color: #fff;
     font-size: 1.6rem;
