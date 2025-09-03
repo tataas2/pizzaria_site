@@ -1,22 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+.bangers-regular {
+    font-family: "Bangers", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
 main.containerM {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 90%;
-  margin-left:5% ;
-  margin-right: 5%;
+  margin: 0 auto;
   min-height: 100vh;
+  position: relative; /* necessário para posicionamento absoluto do botão */
   backdrop-filter: blur(1px);
-
 }
+
 
 .tabs {
   display: flex;
   justify-content: center;
   gap: 2rem; 
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 8rem;
+  margin-bottom: 5rem;
   cursor: pointer;
 }
 
@@ -60,7 +70,7 @@ main.containerM {
   border-radius: 8px;
   padding: 10px;
   width: 150px;
-  height: 200px;
+  height: 250px;
   text-align: center;
   background-color: #fff;
 }
@@ -80,7 +90,7 @@ main.containerM {
 }
 .item-cardapio p {
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
   line-clamp:4;   /* número de linhas antes de cortar */
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -91,6 +101,11 @@ main.containerM {
 }
 
 .item-cardapio h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp:1;   /* número de linhas antes de cortar */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-size: 0.9rem;
   font-weight: 500px;
   color: #000;
@@ -99,9 +114,24 @@ main.containerM {
   display: none;
 }
 
+.btn-card {
+  background-color: #ED1D24;
+  color: #fff;
+  border: solid 2px #632020;
+  margin-top: 5px ;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-card:hover {
+  background-color: #520e11;
+}
 
 
 .modal-overlay {
+
   position: fixed;
   top: 0;
   left: 0;
@@ -115,11 +145,14 @@ main.containerM {
 }
 
 .modal {
+    display: flex;
+  flex-direction: column;
   background: #fff;
   border: 2px solid #000;
   border-radius: 8px;
   padding: 20px;
   width: 300px;
+  height: auto;
   max-width: 90%;
   text-align: center;
   position: relative;
@@ -156,4 +189,291 @@ main.containerM {
   font-weight: bold;
   color: #ED1D24;
   font-size: 1.2rem;
+  margin-top: 5px;
+}
+
+
+/* ===== ASIDE CARRINHO ===== */
+#carrinho {
+  position: fixed;
+  top: 0;
+  right: -450px; /* começa escondido */
+  width: 360px;
+  height: 100%;
+  background: #ffffff;
+  border-left: 3px solid #000;
+  box-shadow: -2px 0 6px rgba(0,0,0,0.2);
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 9999;
+  border-radius: 5px;
+}
+
+#carrinho.active { right: 0; }
+
+.carrinho-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #000;
+  background: radial-gradient(circle, #ED1D24 20%, #520e11 90%, #3d3636 100%);  
+  color: #fff;
+  position: relative;
+  border-radius: 2px;
+}
+ 
+
+.carrinho-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: #000 0.2em 0.4em 0.5em;
+  position: absolute;
+  left: 50%;
+   font-family: "Bangers", system-ui;
+    font-weight: 30;
+    font-style: normal;
+   transform: translateX(-50%);
+}
+
+
+#fechar-carrinho {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #000;
+  cursor: pointer;
+}
+
+#lista-carrinho {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+#lista-carrinho li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.7rem;
+  border-bottom: 1px dashed #ddd;
+  padding-bottom: 5px;
+}
+
+#lista-carrinho .remover {
+  background: none;
+  border: none;
+  color: #ED1D24;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.carrinho-footer {
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  background: #f9f9f9;
+}
+
+.carrinho-footer p 
+{ margin:0 0 10px 0; font-size:1.7rem; font-weight:bold; }
+
+#finalizar {
+  width: 100%;
+  padding: 10px;
+  background: #ED1D24;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#finalizar:hover { background: #520e11; }
+
+
+/* Botão do carrinho fixado à direita do último item */
+.btn-carrinho img {
+  width: 32px;   
+  height: 32px;
+  object-fit: contain; /* mantém a proporção */
+ 
+}
+.btn-carrinho {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: radial-gradient(circle, #ED1D24 30%, #520e11 60%, #3d3636 100%);  
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  z-index: 10000; 
+}
+
+.btn-carrinho:hover {
+  background: #ED1D24;
+}
+
+/* Botões + e - no carrinho */
+#lista-carrinho button.aumentar,
+#lista-carrinho button.diminuir {
+    padding: 5px 10px;
+    font-size: 1.3rem;  /* aumenta o tamanho do texto */
+    font-weight: bold;
+    border-radius: 4px;
+    border: 1px solid #ED1D24;
+    background-color: #fff;
+    color: #ED1D24;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: 0.2s;
+}
+
+#lista-carrinho button.aumentar:hover,
+#lista-carrinho button.diminuir:hover {
+    background-color: #ED1D24;
+    color: #fff;
+}
+
+/* Quantidade antes dos botões */
+#lista-carrinho li div span.quantidade {
+  font-size: 1rem;   /* aumenta o tamanho */
+  font-weight: bold;
+  min-width: 30px;
+  text-align: center;
+  margin-right: 5px;   /* espaçamento para os botões */
+}
+
+/* Entrega */
+#entrega {
+  position: fixed;
+  top: 0;
+  right: -450px;
+  width: 360px;
+  height: 100%;
+  background: #ffffff;
+  border-left: 3px solid #000;
+  box-shadow: -2px 0 6px rgba(0,0,0,0.2);
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-items: self-start;
+  z-index: 9999;
+  border-radius: 5px;
+
+}
+
+#entrega.active { right: 0; }
+
+.entrega-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #000;
+  background: radial-gradient(circle, #ED1D24 20%, #520e11 90%, #3d3636 100%);
+  color: #fff;
+  position: relative;
+  border-radius: 2px;
+}
+
+.entrega-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: #000 0.2em 0.4em 0.5em;
+  position: absolute;
+  left: 50%;
+  font-family: "Bangers", system-ui;
+  font-weight: 30;
+  font-style: normal;
+  transform: translateX(-50%);
+}
+
+#fechar-entrega {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Body */
+.entrega-body {
+  padding: 1rem;
+  gap: 3rem;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.cep-container,
+.endereco-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.label-cep,
+.label-rua,
+.label-numero,
+.label-bairro,
+.label-cidade {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Input CEP */
+.input-cep {
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.entrega-footer {
+  margin-top: auto; /* empurra para o final do aside */
+  padding: 1rem;
+  text-align: center;
+    
+}
+
+/* Botões */
+.btn-buscar-cep,
+.btn-confirmar-entrega {
+  padding: 10px;
+  background: #ED1D24;
+  color: #fff;
+  border: none;
+  width: 100%;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+
+.btn-buscar-cep:hover,
+.btn-confirmar-entrega:hover {
+  background: #520e11;
+}
+
+
+@media (max-width: 768px){
+  .logo{
+    display: none;
+  }
 }

@@ -6,27 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cardapio.css">
-
-
-    <link rel="icon" href="images/favicon.png">
-    <script src="https://kit.fontawesome.com/3df637a2f2.js" crossorigin="anonymous"></script>
-
-
     <link rel="icon" href="img/logo-pizza-da-nonna.png">
+    <script src="https://kit.fontawesome.com/3df637a2f2.js" crossorigin="anonymous"></script>
     <title>Pizzaria</title>
 </head>
 
 <body>
     <header>
         <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
-            <span></span> <!-- 1º traço -->
-            <span></span> <!-- 2º traço -->
-            <span></span> <!-- 3º traço -->
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
         <nav class="nav-principal">
             <div class="logo">
                 <img src="img/logoPizza.png" alt="logo da pizzaria" />
                 <h3>Stan Lee Pizza's</h3>
+
             </div>
             <div class="list-menu">
                 <ul>
@@ -36,65 +32,98 @@
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </div>
+            <!-- Botão do carrinho -->
+
         </nav>
+
+        <button id="btn-carrinho" class="btn-carrinho"><img src="img/pizza.png" alt="Carrinho de compras icon"></button>
+
     </header>
-     
-<!-- Tabs -->
-  <main class="containerM">
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="pizzas">🍕 Pizzas </button>
-      <button class="tab-btn" data-tab="pizzas-doces">🍰 Pizzas Doces</button>
-      <button class="tab-btn" data-tab="bebidas">🥤 Bebidas</button>
+
+    <main class="containerM">
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="pizzas">🍕 Pizzas</button>
+            <button class="tab-btn" data-tab="pizzas-doces">🍰 Pizzas Doces</button>
+            <button class="tab-btn" data-tab="bebidas">🥤 Bebidas</button>
+        </div>
+
+        <!-- Grid de Cards -->
+        <div class="cardapio-grid">
+            <div class="item-cardapio template">
+                <img src="" alt="">
+                <h3></h3>
+                <p></p>
+                <span></span>
+                <button class="btn-card">Comprar</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <img src="" alt="Pizza" class="modal-img">
+            <h3 class="modal-title"></h3>
+            <p class="modal-description"></p>
+            <span class="modal-price"></span>
+            <button class="btn-card" id="confirmar-compra">Add no Carrinho</button>
+        </div>
     </div>
 
-   <!-- Container de cards -->
-  <div class="cardapio-grid">
-    <div class="item-cardapio template">
-      <img src="" alt="">
-      <h3></h3>
-      <p></p>
-      <span></span>
+    <!-- ASIDE CARRINHO -->
+    <aside id="carrinho">
+        <div class="carrinho-header">
+            <h2>Meu Carrinho</h2>
+            <button id="fechar-carrinho">✖</button>
+        </div>
+        <ul id="lista-carrinho">
+            <!-- Itens adicionados aparecem aqui -->
+        </ul>
+        <div class="carrinho-footer">
+            <p>Total: <span id="total">R$ 0,00</span></p>
+            <button id="finalizar">Finalizar Pedido</button>
+        </div>
+    </aside>
+
+
+    <!-- Entrega -->
+  <aside id="entrega" class="entrega">
+  <div class="entrega-header">
+    <h2>Entrega</h2>
+    <button id="fechar-entrega" class="btn-fechar-entrega">✖</button>
+  </div>
+
+  <div class="entrega-body">
+    <div class="cep-container">
+      <label for="cep" class="label-cep">Digite seu CEP:</label>
+      <input type="text" id="cep" class="input-cep" placeholder="Ex: 01001-000" maxlength="9">
+      <input type="text" id="numero" class="input-cep" placeholder="Ex: 321" maxlength="5" required>
+      <button id="btn-buscar-cep" class="btn-buscar-cep">Buscar Endereço</button>
     </div>
+
+    <div class="endereco-container">
+      <label for="logradouro" id="rua" class="label-rua"></label>
+      <label for="bairro" id="bairro" class="label-bairro"></label>
+      <label for="cidade" id="cidade" class="label-cidade"></label>
+      <label for="numero" id="numero" class="label-numero"></label>
+
+    </div>
+
   </div>
 
-  <!-- Modal -->
-<div class="modal-overlay">
-  <div class="modal">
-    <button class="modal-close">&times;</button>
-    <img src="" alt="Pizza" class="modal-img">
-    <h3 class="modal-title"></h3>
-    <p class="modal-description"></p>
-    <span class="modal-price"></span>
+    <div class="entrega-footer">
+    <button id="btn-confirmar-entrega" class="btn-confirmar-entrega">Confirmar Endereço</button>
   </div>
-</div>
 
-  </main>
-
-  
+</aside>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!---
-        <footer>
-            <p>© 2025 Tainá Souza. Todos os direitos reservados.</p>
-        </footer> -->
-
-        <script src="js/menuHome.js"></script>
-        <script src="js/cardapio.js"></script>
-        <script src="js/abas.js"></script>
+    <script src="js/menuHome.js"></script>
+    <script src="js/cardapio.js"></script>
+    <script src="js/abas.js"></script>
+    <script src="js/entrega.js"></script>
 </body>
 
 </html>

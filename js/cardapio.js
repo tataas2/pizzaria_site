@@ -2,7 +2,7 @@ const pizzaJson = [
     {
         id: 1,
         name: 'MAXIMOFF',
-        img: 'img/pizza.png',
+        img: 'img/pizza1.png',
         type: 'pizzas',
         price: [25.00],
        
@@ -70,5 +70,34 @@ const pizzaJson = [
         price: [35.00],
      
         description: 'Creme de leite, lascas de chocolate e morangos'
+      },
+
+
+      {
+        id: 9,
+        name: 'Coca-Cola',
+        img: 'img/coca.png',
+        type: 'bebidas',
+        price: [12.00],   
+        description: 'Coca-Cola diet lata 350ml'
+      },
+
+      {
+        id: 10,
+        name: 'Monster',
+        img: 'img/monster.png',
+        type: 'bebidas',
+        price: [9.00],
+        description: 'Monster lata 473ml'
+      },
+
+      {
+        id: 11,
+        name: 'Suco de Uva',
+        img: 'img/suco.png',
+        type: 'bebidas',
+        price: [8.00],
+     
+        description: 'Suco de uva integral 500ml'
       }
 ];
