@@ -50,13 +50,13 @@
 
             <div class="btnsHome">
                 <button class="btn-home">
-                     <li><a href="#menu">Menu</a></li>
+                    <li><a href="#menu">Menu</a></li>
                 </button>
                 <button class="btn-home">
-                     <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
                 </button>
                 <button class="btn-home">
-                     <li><a href="#contato">Contato</a></li>
+                    <li><a href="#contato">Contato</a></li>
                 </button>
 
 
@@ -66,9 +66,20 @@
         </section>
 
         <section id="menu" class="menu">
-            <h2>Nosso Menu</h2>
-            <!-- Conteúdo do menu -->
+            <div class="carousel-container">
+                <div class="carousel">
+                    <button class="carousel-btn prev">❮</button>
+                    <div class="carousel-track" id="carousel-track"></div>
+                    <button class="carousel-btn next">❯</button>
+                    <button class="btn-comprar">
+                        <a href="menu.html">Comprar</a>
+                    </button>
+                </div>
+
+
+            </div>
         </section>
+
 
         <section id="sobre" class="sobre">
 
@@ -124,9 +135,12 @@
         <footer>
             <p>© 2025 Tainá Souza. Todos os direitos reservados.</p>
         </footer>
-
+        <script src="js/cardapio.js"></script>
         <script src="js/menuHome.js"></script>
-       
+        <script src="js/carrossel.js"></script>
+
+
+
 </body>
 
 </html>

@@ -23,7 +23,7 @@ html {
 
     font-family: 'Comic Sans MS', Impact, sans-serif;
     overflow-x: hidden;
-    
+
     background-image:
         radial-gradient(circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%),
         url('../img/backgroundSite.png');
@@ -285,7 +285,7 @@ header.show {
 
 h2 {
     font-size: 2.2rem;
-    font-weight:bolder;
+    font-weight: bolder;
     color: #000;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -336,6 +336,7 @@ h2 {
     cursor: pointer;
 }
 
+/* Footer */
 
 footer {
     background-color: #000;
@@ -350,8 +351,114 @@ footer p {
     color: #fff;
 }
 
+/* Carrossel */
+.carousel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel {
+    position: relative;
+    width: 90%;
+    max-width: 700px;
+    margin: 50px auto;
+    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    top: 0;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.123) 20%, rgba(255, 255, 255, 0) 0%);
+    backdrop-filter: blur(1.3px);
+    padding: 15px;
+}
+
+.carousel-item img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.carousel-item h3 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    color: #ED1D24;
+}
+
+.carousel-item p {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #444;
+    margin: 10px 0;
+}
+
+#pizza-price {
+    font-size: 2rem;
+    color: #ED1D24;
+    font-weight: bold;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background: #ED1D24;
+}
 
 
+
+.btn-comprar {
+    padding: 10px 20px;
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 20%;
+    background: #ED1D24;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-comprar:hover {
+    background: #520e11;
+}
+
+.btn-comprar a {
+    color: #fff;
+    text-decoration: none;
+    font: 1.2rem Arial, sans-serif;
+}
 
 /* ========= RESPONSIVIDADE ========= */
 @media (max-width: 768px) {
@@ -471,6 +578,19 @@ footer p {
     .balao::after {
         border-width: 5px;
         bottom: -18px;
+    }
+
+    .carousel {
+        width: 60%;
+        margin: 0;
+    }
+
+    .carousel-btn.prev {
+        left: 5px;
+    }
+
+    .carousel-btn.next {
+        right: 5px;
     }
 }
 

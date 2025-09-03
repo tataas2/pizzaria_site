@@ -1,5 +1,5 @@
 // Função para popular os cards
-function popularPizzas(tab='pizzas') {
+function popularPizzas(tab = 'pizzas') {
     const container = document.querySelector('.cardapio-grid');
     const template = container.querySelector('.template');
 
@@ -84,7 +84,7 @@ function atualizarCarrinho() {
     listaCarrinho.innerHTML = "";
     let total = 0;
 
-    if(itensCarrinho.length === 0){
+    if (itensCarrinho.length === 0) {
         const li = document.createElement('li');
         li.textContent = "Seu carrinho está vazio!";
         listaCarrinho.appendChild(li);
@@ -115,7 +115,7 @@ confirmarCompra.addEventListener('click', () => {
     const preco = parseFloat(modal.price.textContent.replace('R$', '').replace(',', '.'));
 
     const existingIndex = itensCarrinho.findIndex(i => i.nome === nome);
-    if(existingIndex >= 0){
+    if (existingIndex >= 0) {
         itensCarrinho[existingIndex].quantidade += 1;
     } else {
         itensCarrinho.push({ nome, preco, quantidade: 1 });
@@ -129,15 +129,15 @@ confirmarCompra.addEventListener('click', () => {
 // Remover, aumentar ou diminuir quantidade
 listaCarrinho.addEventListener('click', e => {
     const index = e.target.getAttribute('data-index');
-    if(e.target.classList.contains('remover')){
+    if (e.target.classList.contains('remover')) {
         itensCarrinho.splice(index, 1);
     }
-    if(e.target.classList.contains('aumentar')){
+    if (e.target.classList.contains('aumentar')) {
         itensCarrinho[index].quantidade += 1;
     }
-    if(e.target.classList.contains('diminuir')){
+    if (e.target.classList.contains('diminuir')) {
         itensCarrinho[index].quantidade -= 1;
-        if(itensCarrinho[index].quantidade <= 0){
+        if (itensCarrinho[index].quantidade <= 0) {
             itensCarrinho.splice(index, 1);
         }
     }
@@ -149,56 +149,56 @@ const fecharEntrega = document.getElementById('fechar-entrega');
 
 // Abre entrega e fecha carrinho
 finalizar.addEventListener("click", () => {
-  asideCarrinho.classList.remove("active");
-  asideEntrega.classList.add("active");
+    asideCarrinho.classList.remove("active");
+    asideEntrega.classList.add("active");
 });
 
 // Fecha entrega
 fecharEntrega.addEventListener("click", () => {
-  asideEntrega.classList.remove("active");
+    asideEntrega.classList.remove("active");
 });
 
 // Buscar CEP
 document.getElementById("btn-buscar-cep").addEventListener("click", async () => {
-   const numero = document.getElementById("numero").value;
+    const numero = document.getElementById("numero").value;
 
-  if (numero === "") {
-       document.getElementById("rua").textContent = "Por favor, informe o número antes de buscar!";
-    return;
-  }
-  const cep = document.getElementById("cep").value.replace(/\D/g, '');
-  if (cep.length !== 8) {
-    document.getElementById("rua").textContent = "CEP inválido!";
-    document.getElementById("bairro").textContent = "";
-    document.getElementById("cidade").textContent = "";
-    document.getElementById("numero").textContent = "";
-    return;
-  }
-
-  try {
-    const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-    const data = await response.json();
-
-    if (data.erro) {
-      document.getElementById("rua").textContent = "CEP não encontrado!";
-      document.getElementById("bairro").textContent = "";
-      document.getElementById("cidade").textContent = "";
-      document.getElementById("numero").textContent = "";
-    } else {
-      document.getElementById("rua").textContent = `Rua: ${data.logradouro}, ${numero}`;
-      document.getElementById("bairro").textContent = `Bairro: ${data.bairro}`;
-      document.getElementById("cidade").textContent = `Cidade: ${data.localidade} - ${data.uf}`;
-      
+    if (numero === "") {
+        document.getElementById("rua").textContent = "Por favor, informe o número antes de buscar!";
+        return;
     }
-  } catch (error) {
-    console.error("Erro ao buscar CEP:", error);
-  }
+    const cep = document.getElementById("cep").value.replace(/\D/g, '');
+    if (cep.length !== 8) {
+        document.getElementById("rua").textContent = "CEP inválido!";
+        document.getElementById("bairro").textContent = "";
+        document.getElementById("cidade").textContent = "";
+        document.getElementById("numero").textContent = "";
+        return;
+    }
+
+    try {
+        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await response.json();
+
+        if (data.erro) {
+            document.getElementById("rua").textContent = "CEP não encontrado!";
+            document.getElementById("bairro").textContent = "";
+            document.getElementById("cidade").textContent = "";
+            document.getElementById("numero").textContent = "";
+        } else {
+            document.getElementById("rua").textContent = `Rua: ${data.logradouro}, ${numero}`;
+            document.getElementById("bairro").textContent = `Bairro: ${data.bairro}`;
+            document.getElementById("cidade").textContent = `Cidade: ${data.localidade} - ${data.uf}`;
+
+        }
+    } catch (error) {
+        console.error("Erro ao buscar CEP:", error);
+    }
 });
 
 // Confirmar entrega
 document.getElementById("btn-confirmar-entrega").addEventListener("click", () => {
-  alert("Endereço confirmado! Pedido será entregue 🎉");
-  asideEntrega.classList.remove("active");
+    alert("Endereço confirmado! Pedido será entregue 🎉");
+    asideEntrega.classList.remove("active");
 });
 
 // Inicializa cards da aba padrão
